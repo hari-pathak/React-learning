@@ -3,6 +3,11 @@ import Greetings from "./components/Greetings";
 import UserDetails from "./components/UserDetails";
 import HomePage from "./pages/HomePage";
 import axios from "axios";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import AboutPage from "./pages/AboutPage";
+import Router from "./routers/Router";
+import Layout from "./layout/Layout";
 
 function App() {
 
@@ -34,17 +39,17 @@ function updateCount(){
 
 const [posts, setPosts] = useState([]);
 
-useEffect(() => {
-  axios.get("https://jsonplaceholder.typicode.com/posts")
-  .then(res => {
-    console.log(res.data);
-    setPosts(res.data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+// useEffect(() => {
+//   axios.get("https://jsonplaceholder.typicode.com/posts")
+//   .then(res => {
+//     console.log(res.data);
+//     setPosts(res.data)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
   
-}, [count])
+// }, [count])
 
 
 // A React component’s job is mainly to show things on the screen.
@@ -65,9 +70,9 @@ useEffect(() => {
 // Why?
 // Because they happen on the side, apart from just showing the component.
 
-useEffect(() => {
-  console.log("Component mounted")
-},[])   //displays only once. while refresh
+// useEffect(() => {
+//   console.log("Component mounted")
+// },[])   //displays only once. while refresh
 
 // useEffect(() => {
 //   console.log("Component mounted")
@@ -85,7 +90,7 @@ useEffect(() => {
     {/* <Greetings name="Hari" age={20}/>
     <UserDetails marriedDetails={abc} userDetails = {user}/> */}
 
-    <div className="flex flex-col  h-screen items-center justify-center gap-6">
+    {/* <div className="flex flex-col  h-screen items-center justify-center gap-6">
     <div className="flex gap-6">
         <button onClick={()=> setResourceType("posts")} className=" bg-red-300 px-4 py-2 rounded-md">Posts</button>
       <button onClick={() => setResourceType("users")} className="bg-green-300 px-4 py-2 rounded-md">Users</button>
@@ -93,18 +98,22 @@ useEffect(() => {
     </div>
 
        <h1>{resourceType}</h1>
-    </div>
+    </div> */}
 
-    <h1>Button clicked {count} times</h1>
-    <button onClick={updateCount}>Click</button>
+    {/* <h1>Button clicked {count} times</h1>
+    <button onClick={updateCount}>Click</button> */}
+
+
 
 
     <div>
-      <ul className="">
+      {/* <ul className="">
         {posts.map(post => (
           <li key={post.id}>{post.title}</li>
         ))}
-      </ul>
+      </ul> */}
+
+   <Layout/>
     </div>
 
    
