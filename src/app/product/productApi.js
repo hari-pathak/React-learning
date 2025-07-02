@@ -7,6 +7,7 @@ export const productApi = createApi({
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => "/posts",
+      providesTags: ["Posts"],
     }),
 
     getPostById: builder.query({
@@ -22,7 +23,21 @@ export const productApi = createApi({
           "Content-Type": "application/json",
         },
       }),
+      invalidatesTags: ["Posts"],
+    }),
+
+
+     updatePost: builder.mutation({
+      query: (q) => ({
+        url: `/posts/${q.id}`,
+        method: "PUT",
+        body: q,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }),
+      invalidatesTags: ["Posts"],
     }),
   }),
 });
-export const { useGetPostsQuery, useGetPostByIdQuery, useAddPostMutation } = productApi;
+export const { useGetPostsQuery, useGetPostByIdQuery, useAddPostMutation, useUpdatePostMutation  } = productApi;

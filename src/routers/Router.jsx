@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage'
 import AboutPage from '../pages/AboutPage'
 import PostDetails from '../pages/PostDetails'
 import AddPost from '../pages/AddPost'
+import UpdatePost from '../pages/UpdatePost'
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
     <Route  path='/about' element={<AboutPage/>}/>
     <Route path='/post/:id' element={<PostDetails/>}/>
     <Route  path='/addPost' element={<AddPost/>}/>
+    <Route  path='/updatePost' element={<UpdatePost/>}/>
     
     
 
